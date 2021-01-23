@@ -13,24 +13,7 @@ class StudentsController < ApplicationController
       render 'new'
     end
   end
-
-  def index
-    query = params[:query]
-    if !query.blank?
-      s = Student.all
-      @students = []
-      s.each do |student|
-        if student.name.include?(query)
-          # binding.pry
-          @students << student
-        end
-      end
-    else
-      @students = Student.all
-    end
-  end
   
-
   def edit
     @student = Student.find(params[:id])
   end
@@ -39,8 +22,11 @@ class StudentsController < ApplicationController
     @student = Student.find(params[:id])
   end
 
-
-
+  def index
+    @students = Student.search(params[:query])
+    render 'index'
+  end
+  
   def student_params
     params.require(:student).permit(:name, :birthday, :hometown)
   end
