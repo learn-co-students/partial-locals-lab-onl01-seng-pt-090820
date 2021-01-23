@@ -1,5 +1,3 @@
-<%= render "search_filters", search: @students do |form| %>
-  <p>
-    Name contains: <%= form.text_field :name_contains %>
-  </p>
+<% @students.each do |s| %>
+    <%= render partial: 'student', locals: {student: s} %>
 <% end %>
