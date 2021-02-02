@@ -52,7 +52,8 @@ students with similar names are returned in the search results.
    query in ActiveRecord that follows the form: `Student.where("name LIKE ?",
    "%query%")`. For example, `Student.where("name LIKE ?", "%M%")` will return
    all students with an "M" anywhere in their name. Once you have the search
-   functionality coded, you should be able to visually test it by visiting
+   functionality coded, you should be able to visually test it by v
+   isiting
    `http://localhost:3000?query="search_text"`.
 
 ## Resources
